@@ -272,7 +272,7 @@ var AllCommands = []Command{
 		},
 		Arguments: &i18n.Message{
 			ID:    "commands.AllCommands.Map.args",
-			Other: "<map_name> (skeld, mira_hq, polus) <version> (optional, simple or detailed)",
+			Other: "<map_name> (skeld, mira_hq, polus, airship) <version> (optional, simple or detailed)",
 		},
 		Aliases:    []string{"map"},
 		IsSecret:   false,
@@ -318,7 +318,7 @@ var AllCommands = []Command{
 			ID:    "commands.AllCommands.Privacy.args",
 			Other: "showme, optin, or optout",
 		},
-		Aliases:    []string{"private", "priv", "gpdr"},
+		Aliases:    []string{"private", "priv", "gdpr"},
 		IsSecret:   false,
 		Emoji:      "🔍",
 		IsAdmin:    false,

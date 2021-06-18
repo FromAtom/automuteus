@@ -34,7 +34,7 @@ func NewMapItem(name string) (*MapItem, error) {
 		name = "polus"
 	//case "dleks":
 	//	name = "dleks"
-	case "airship", "ship":
+	case "airship", "ship", "air":
 		name = "airship"
 	default:
 		return nil, errors.New(fmt.Sprintf("Invalid map name: %s", name))

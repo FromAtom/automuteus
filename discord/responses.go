@@ -347,6 +347,12 @@ func lobbyMetaEmbedFields(room, region string, author, vc string, playerCount in
 		Inline: true,
 	})
 	if room != "" {
+		switch {
+		case sett.DisplayRoomCode == "spoiler":
+			room = fmt.Sprintf("||%v||", room)
+		case sett.DisplayRoomCode == "never":
+			room = strings.Repeat("\\*", len(room))
+		}
 		gameInfoFields = append(gameInfoFields, &discordgo.MessageEmbedField{
 			Name: sett.LocalizeMessage(&i18n.Message{
 				ID:    "responses.lobbyMetaEmbedFields.RoomCode",
@@ -779,9 +785,9 @@ func nonPremiumSettingResponse(sett *storage.GuildSettings) string {
 // if you're reading this, adding these bots won't help you.
 // Galactus+AutoMuteUs verify the premium status internally before using these bots ;)
 var BotInvites = []string{
-	"https://discord.com/api/oauth2/authorize?client_id=780323275624546304&permissions=12582912&scope=bot",
-	"https://discord.com/api/oauth2/authorize?client_id=769022114229125181&permissions=12582912&scope=bot",
-	"https://discord.com/api/oauth2/authorize?client_id=780323801173983262&permissions=12582912&scope=bot"}
+	"https://discord.com/api/oauth2/authorize?client_id=780323275624546304&permissions=12582912&scope=bot", // amu1
+	"https://discord.com/api/oauth2/authorize?client_id=780589033033302036&permissions=12582912&scope=bot", // amu4
+	"https://discord.com/api/oauth2/authorize?client_id=780323801173983262&permissions=12582912&scope=bot"} // amu3
 
 func premiumInvitesEmbed(tier premium.Tier, sett *storage.GuildSettings) *discordgo.MessageEmbed {
 	desc := ""
